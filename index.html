@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>University Tech Fest — Event Portal</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="nav-wrap">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assests/logo.png" alt="University Logo"/>
+        <span class="brand">TechFest 2025</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#tools">Tools</a></li>
+      </ul>
+      <div class="login-box">
+        <form class="login-form" onsubmit="event.preventDefault(); alert('Login demo — not connected');">
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Log in</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="home">
+    <section class="banner">
+      <div class="banner-content">
+        <h1>Welcome to <span>University TechFest 2025</span></h1>
+        <p>Explore workshops, contests, and networking — register now to secure your spot.</p>
+        <a class="cta" href="#register">Register Now</a>
+      </div>
+      <img class="banner-img" src="https://images.unsplash.com/photo-1532619675605-1b0a4b9b2a6e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=334f8c7b" alt="Tech event banner"/>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <h2 class="section-title">Moments from Past TechFests</h2>
+      <div class="grid">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=0b2c6d1f" alt="gallery1"/>
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a6b0b6a" alt="gallery2"/>
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=ef8b9c06" alt="gallery3"/>
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6f9f7087" alt="gallery4"/>
+      </div>
+    </section>
+
+
+    <section id="about" class="intro">
+      <div class="intro-text">
+        <h2>About the Fest</h2>
+        <p>
+          TechFest is the annual celebration of innovation, coding, and collaboration at the university. 
+          Open to all students — join workshops, hackathons, and competitions.
+        </p>
+      </div>
+      <div class="intro-cards">
+        <article class="card">
+          <h3>Workshops</h3>
+          <p>Hands-on sessions from industry mentors.</p>
+        </article>
+        <article class="card">
+          <h3>Contests</h3>
+          <p>Hackathons, coding duels and product challenges.</p>
+        </article>
+      </div>
+    </section>
+
+ 
+    <section id="register" class="register">
+      <h2 class="section-title">Online Registration</h2>
+      <form id="eventForm" action="/serverlogic" method="post" enctype="multipart/form-data" novalidate>
+        <fieldset>
+          <legend>Personal Details</legend>
+          <label for="fullname">Full name</label>
+          <input type="text" id="fullname" name="fullname" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </fieldset>
+        <fieldset>
+          <legend>Profile & Submission</legend>
+          <label for="photo">Upload your photo</label>
+          <input type="file" id="photo" name="photo" accept="image/*" />
+          <label for="bio">Short bio</label>
+          <textarea id="bio" name="bio" required></textarea>
+          <label for="progress">Form completion</label>
+          <progress id="progress" value="0" max="100">0%</progress>
+        </fieldset>
+        <div class="form-actions">
+          <input type="reset" value="Reset" />
+          <input type="submit" value="Submit Registration" />
+        </div>
+      </form>
+    </section>
+
+ 
+    <section id="tools" class="tools">
+      <h2 class="section-title">Quick Tools</h2>
+      <div class="tool">
+        <h4>BMI Calculator</h4>
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" />
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" />
+        <button type="button" id="bmiCalc">Calculate BMI</button>
+        <div id="bmiResult" class="result">—</div>
+      </div>
+      <div class="tool">
+        <h4>Currency Converter</h4>
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" value="100" />
+        <label for="fromCurr">From</label>
+        <select id="fromCurr"><option value="INR">INR</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
+        <label for="toCurr">To</label>
+        <select id="toCurr"><option value="USD">USD</option><option value="INR">INR</option><option value="EUR">EUR</option></select>
+        <div id="convResult" class="result">Converted: —</div>
+      </div>
+    </section>
+
+    
+    <footer class="site-footer">
+      <p>&copy; 2025 University TechFest</p>
+    </footer>
+  </main>
+</body>
+</html>
+
+
+
